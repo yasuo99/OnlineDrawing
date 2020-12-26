@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav">
+            <div class="nav-item">Online drawing</div>
+            <div class="nav-item"></div>
+        </div>
+        <main>
+            <div class="row">
+                <div class="col-2">
+                    <input type="number" id="pensize" value='4' min='4' max='20'>
+                    <ul class="list-group">
+                        <li data-color="green" class="list-group-item" style="background-color: green;"></li>
+                        <li data-color="red" class="list-group-item" style="background-color: red;"></li>
+                        <li data-color="purple" class="list-group-item" style="background-color: purple;"></li>
+                        <li data-color="yellow" class="list-group-item" style="background-color: yellow;"></li>
+                        <li data-color="blue" class="list-group-item" style="background-color: blue;"></li>
+                    </ul>
+                </div>
+                <div class="col-10">
+                    <canvas id="draw-board" class="border" width="600px" height="400px"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

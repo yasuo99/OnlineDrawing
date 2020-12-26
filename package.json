@@ -1,0 +1,17 @@
+{
+  "name": "onlinedrawing",
+  "version": "1.0.0",
+  "description": "Drawing online with canvas through socket.io",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "author": "Thanh",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6",
+    "socket.io": "^3.0.4"
+  }
+}
