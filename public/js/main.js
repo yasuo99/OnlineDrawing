@@ -1,5 +1,6 @@
 const canvas = document.getElementById('draw-board');
 const ctx = canvas.getContext('2d');
+const erase = document.getElementById('erase');
 var centerX = canvas.width / 2;
 var centerY = canvas.height / 2;
 var radius = 70;
@@ -47,4 +48,27 @@ colorPicker.addEventListener('click', (e) => {
     e.target.classList.add('active');
     console.log(e.target.dataset.color);
     color = e.target.dataset.color;
+    canvas.onmouseup = (e) => {
+        canvas.onmousemove = (e) => { };
+    }
+    
+    canvas.onmousedown = (e) => {
+        const size = document.getElementById('pensize');
+        canvas.onmousemove = (e) => {
+            draw(e.clientX, e.clientY, size.value, color);
+            socket.emit('draw', createPoint(e.clientX, e.clientY, size.value, color))
+        }
+    }
+});
+erase.addEventListener('click', (e) => {
+    canvas.onmouseup = (e) => {
+        canvas.onmousemove = (e) => { };
+    }
+    canvas.onmousedown = (e) => {
+        const size = document.getElementById('pensize');
+        canvas.onmousemove = (e) => {
+            draw(e.clientX, e.clientY, size.value, 'white');
+            socket.emit('draw', createPoint(e.clientX, e.clientY, size.value, 'white'))
+        }
+    }
 })
